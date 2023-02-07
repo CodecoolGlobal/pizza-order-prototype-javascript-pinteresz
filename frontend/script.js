@@ -23,7 +23,7 @@ const switchAllergens = function(allergens){
     const result = []
     for(let i = 0; i < allergensList.length; i++){
         if(allergens.includes(allergensList[i].id)){
-            result.push(allergensList[i].name)
+            result.push(" " + allergensList[i].name)
         }
     }
     return result
@@ -53,13 +53,14 @@ const loadPizzas = function () {
 
 
 const buttonElement = function(allergen) {
-    return `<button class="allergenButton">${allergen}</button>`
+    return `<button type="button" class="allergenButton">${allergen}</button>`
 }
 
 //console.log(allergensList)
 const loadEvent = _ => {
 
     document.getElementById("root").insertAdjacentHTML("beforebegin", `<div class="buttonsDiv" id="buttonsDiv"></div>`)
+    document.getElementById("buttonsDiv").insertAdjacentHTML("beforeend", `<button class="falseAllergenButton">Filter your pizza by allergens</button>`)
     loadAllergens2()
         .then(allergens => allergens.map(allergen =>  document.getElementById("buttonsDiv"). insertAdjacentHTML("beforeend", buttonElement(allergen["name"]))))
     // for (let i = 0; i < allergensList.length; i++){

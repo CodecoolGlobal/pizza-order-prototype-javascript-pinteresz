@@ -12,16 +12,35 @@ flex-direction: column;
     height: inherit;
 }
 
+.falseAllergenButton{
+    display: inline-block;
+    text-align: center;
+    font-size:16px;
+    background-color: rgb(38, 37,37, 0.8);
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
 
 .allergenButton{
     display: inline-block;
     text-align: center;
     font-size:16px;
-    background-color: red;
+    background-color:red;
     color: white;
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
+}
+
+.allergenButton:hover{
+    color:#000000;
+    background-color:#FFFFFF;
+    }
+
+.allergenButton:active{
+  transform: translateY(4px);
 }
 
 .pizzas{
