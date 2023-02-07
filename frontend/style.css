@@ -1,0 +1,33 @@
+body {
+height: 100vh;
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#root{
+    height: inherit;
+}
+
+.pizzas{
+    display: flex;
+    flex-direction: column;
+    background-color: #262525;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-around; */
+    /* align-content: space-between; */
+    width: 80vh;
+    /* height: 100vh; */
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.pizza {
+    background-color: red;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    /* width: auto; */
+}

@@ -3,49 +3,49 @@
         {
             "id": 1,
             "name": "Marinara",
-            "ingredients": [ "San Marzano tomato sauce", "garlic", "oregano", "olive oil" ],
+            "ingredients": [ "San Marzano tomato sauce", " garlic", " oregano", " olive oil" ],
             "price": 3200,
             "allergens": [1,3]
         },
         {
             "id": 2,
             "name": "BBQ",
-            "ingredients": [ "BBQ sauce", "mozzarella", "onions", "chicken" ],
+            "ingredients": [ "BBQ sauce", " mozzarella", " onions", " chicken" ],
             "price": 3395,
             "allergens": [1,2,3,4,5]
         },
         {
             "id": 3,
             "name": "Carbonara",
-            "ingredients": [ "Garlic sour cream", "bacon", "egg", "mozzarella" ],
+            "ingredients": [ "Garlic sour cream", " bacon", " egg", " mozzarella" ],
             "price": 3095,
             "allergens": [1,2,6]
         },
         {
             "id": 3,
             "name": "Hawaii",
-            "ingredients": [ "Tomato sauce", "ham", "pineapple", "sweetcorn", "mozzarella" ],
+            "ingredients": [ "Tomato sauce", " ham", " pineapple", " sweetcorn", " mozzarella" ],
             "price": 3195,
             "allergens": [1,2,3]
         },
         {
             "id": 4,
             "name": "Dolce Vita",
-            "ingredients": [ "tomato sauce", "ham", "mushrooms", "sweetcorn", "mozzarella"],
+            "ingredients": [ "tomato sauce", " ham", " mushrooms", " sweetcorn", " mozzarella"],
             "price": 3195,
             "allergens": [1,2,3]
         },
         {
             "id": 6,
             "name": "Margherita",
-            "ingredients": [ "Tomato sauce", "tomato slices", "oregano", "mozzarella" ],
+            "ingredients": [ "Tomato sauce", " tomato slices", " oregano", " mozzarella" ],
             "price": 3095,
             "allergens": [1,2,3]
         },
         {
             "id": 7,
             "name": "Genova (vegan)",
-            "ingredients": [ "vegan sour cream", "leek", "meatless daisy ham", "vegan mozzarella" ],
+            "ingredients": [ "vegan sour cream", " leek", " meatless daisy ham", " vegan mozzarella" ],
             "price": 3095,
             "allergens": [1]
         }
