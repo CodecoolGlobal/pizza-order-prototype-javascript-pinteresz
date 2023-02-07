@@ -3,11 +3,24 @@ height: 100vh;
 background-color: white;
 display: flex;
 align-items: center;
-justify-content: center;
+/*justify-content: center;*/
+flex-direction: column;
 }
 
 #root{
     height: inherit;
+}
+
+
+.allergenButton{
+    display: inline-block;
+    text-align: center;
+    font-size:16px;
+    background-color: red;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .pizzas{

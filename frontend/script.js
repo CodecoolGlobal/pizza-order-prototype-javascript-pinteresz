@@ -73,14 +73,15 @@ const loadPizzas = function () {
 
 
 const buttonElement = function(allergen) {
-    return `<button>${allergen}</button>`
+    return `<button class="allergenButton">${allergen}</button>`
 }
 
-console.log(allergensList)
+//console.log(allergensList)
 const loadEvent = _ => {
 
+    document.getElementById("root").insertAdjacentHTML("beforebegin", `<div class="buttonsDiv" id="buttonsDiv"></div>`)
     loadAllergens2()
-        .then(allergens => allergens.map(allergen =>  document.getElementById("root"). insertAdjacentHTML("afterbegin", buttonElement(allergen))))
+        .then(allergens => allergens.map(allergen =>  document.getElementById("buttonsDiv"). insertAdjacentHTML("beforeend", buttonElement(allergen["name"]))))
     // for (let i = 0; i < allergensList.length; i++){
     //     document.getElementById("root"). insertAdjacentHTML("afterbegin", buttonElement(allergensList[i].name))
     // }
@@ -88,7 +89,7 @@ const loadEvent = _ => {
 
 
     loadPizzas()
-        .then(pizzas => switchAllergens(pizzas))
+     //   .then(pizzas => switchAllergens(pizzas))
         .then(pizzas => printPizzas(pizzas))
 };
 
