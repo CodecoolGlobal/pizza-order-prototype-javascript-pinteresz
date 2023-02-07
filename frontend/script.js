@@ -19,34 +19,14 @@ const loadAllergens = function(){
 loadAllergens()
 
 
-const switchAllergens = function(pizzas){
-     let updatedPizzas = JSON.parse(JSON.stringify(pizzas))
-   
-    let indexPizza = 0;
-    let indexAllergen = 0;
-    for(let pizza of pizzas){
-            indexAllergen = 0;
-        indexPizza++
-        for(let allergen of pizza.allergens){
-            indexAllergen++
-            console.log('ALLERGENS: ', allergen)
-            for(let allergenObject of allergensList){
-                    console.log(allergenObject)
-                    if(allergen === allergenObject["id"]){
-                    // console.log(updatedPizzas[indexPizza].allergens[indexAllergen])
-                    console.log(indexPizza);
-                    console.log(updatedPizzas[indexPizza])
-                      updatedPizzas[indexPizza].allergens[indexAllergen] = allergenObject["name"]           
-                    
-                }
-            }
+const switchAllergens = function(allergens){
+    const result = []
+    for(let i = 0; i < allergensList.length; i++){
+        if(allergens.includes(allergensList[i].id)){
+            result.push(allergensList[i].name)
         }
     }
-
-   
-    
-    console.log(updatedPizzas);
-    return updatedPizzas
+    return result
 }
 
 
@@ -55,7 +35,7 @@ const switchAllergens = function(pizzas){
 
 const pizzaElement = function (pizza) {
    // console.log("asd");
-    return `<div class="pizza">Name: ${pizza["name"]} <br> Ingredients: ${pizza["ingredients"]} <br> Price: ${pizza["price"]} <br> Allergens: ${pizza["allergens"]}</div>`
+    return `<div class="pizza">Name: ${pizza["name"]} <br> Ingredients: ${pizza["ingredients"]} <br> Price: ${pizza["price"]} <br> Allergens: ${switchAllergens(pizza["allergens"])}</div>`
 }
 
 const printPizzas = function (pizzas) {
