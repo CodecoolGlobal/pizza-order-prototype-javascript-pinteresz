@@ -57,9 +57,21 @@ const loadAllergens = function(){
         console.log(allergensList);
     });
 }
-    
-loadAllergens()
 
+let pizzaList;
+const createPizzaVar = function(){
+    return fetch("/api/pizza")
+    .then(res => res.json())
+    .then(data => {
+        pizzaList = data;
+    })
+    .then(() => {
+        console.log(pizzaList);
+    });
+}
+
+loadAllergens()
+createPizzaVar()
 
 const switchAllergens = function(allergens){
     const result = []
@@ -76,7 +88,7 @@ const switchAllergens = function(allergens){
 
 
 const pizzaElement = function (pizza) {
-    return `<div class="pizza">Name: ${pizza["name"]} <br> Ingredients: ${pizza["ingredients"]} <br> Price: ${pizza["price"]} <br> Allergens: ${switchAllergens(pizza["allergens"])}
+    return `<div class="pizza" id="pizza${pizza.id}">Name: ${pizza["name"]} <br> Ingredients: ${pizza["ingredients"]} <br> Price: ${pizza["price"]} <br> Allergens: ${switchAllergens(pizza["allergens"])}
     <br><input id="input${pizza.id}" type="number" min="1" placeholder="Amount" class="amountButton">
     <button id="button${pizza.id}" class="cartButton">Add to cart</button></div>`
 }
@@ -89,15 +101,15 @@ const printPizzas = function (pizzas) {
 
 
 
-
 const loadPizzas = function () {
     return fetch("/api/pizza")
         .then(res => res.json())
+        
 }
 
 
-const buttonElement = function(allergen) {
-    return `<button type="button" class="allergenButton">${allergen}</button>`
+const buttonElement = function(allergen, id) {
+    return `<button type="button" class="allergenButton" id="allergen${id}">${allergen}</button>`
 }
 
 
@@ -109,33 +121,49 @@ const loadEvent = _ => {
     document.getElementById("root").insertAdjacentHTML("afterbegin", formElement())
     document.getElementById("root").insertAdjacentHTML("afterbegin", `<div class="buttonsDiv" id="buttonsDiv"></div>`)
     document.getElementById("buttonsDiv").insertAdjacentHTML("beforeend", `<button class="fakeAllergenButton">Filter your pizza by allergens</button>`)
+    document.getElementById("buttonsDiv").insertAdjacentHTML("beforeend", `<button class="resetFilter">Reset filter</button>`)
     loadAllergens2()
-        .then(allergens => allergens.map(allergen =>  document.getElementById("buttonsDiv"). insertAdjacentHTML("beforeend", buttonElement(allergen["name"]))))
+    .then(allergens => allergens.map(allergen =>  document.getElementById("buttonsDiv"). insertAdjacentHTML("beforeend", buttonElement(allergen["name"], allergen.id))))
     // for (let i = 0; i < allergensList.length; i++){
-    //     document.getElementById("root"). insertAdjacentHTML("afterbegin", buttonElement(allergensList[i].name))
-    // }
-
+        //     document.getElementById("root"). insertAdjacentHTML("afterbegin", buttonElement(allergensList[i].name))
+        // }
 
 
     loadPizzas()
         .then(pizzas => printPizzas(pizzas))
-
 }
-let filterBy= []
-
+let filterBy = []
 const clickEvent = function(event){
     
     const allergens = []
     allergensList.forEach(element => {
         allergens.push(element.name)
     });
-    
-    //allergens buttons
-    
+
+    //allergens filter
+    console.log(event.target.classList[0]);
     if(allergens.includes(event.target.textContent)){
-        filterBy.push(event.target.textContent)
-        loadEvent()
-    }
+        console.log(filterBy);
+        if(!filterBy.includes(parseInt(event.target.id.slice(8)))){
+        filterBy.push(parseInt(event.target.id.slice(8)))
+        }else{
+            filterBy = filterBy.filter(allergen => allergen !== parseInt(event.target.id.slice(8)))
+        }
+        console.log(filterBy);
+        for(let pizza of pizzaList){
+           for(let allergen of pizza.allergens){
+                if(filterBy.includes(allergen)){
+                        document.getElementById(`pizza${pizza.id}`).classList.add("hidden")
+                }         
+        }
+    }}
+    if(event.target.classList[0] === "resetFilter"){
+        console.log("asd");
+        for(let pizza of pizzaList){
+            filterBy = []
+            document.getElementById(`pizza${pizza.id}`).classList.remove("hidden")
+        }
+    }   
 
     //order buttons
     if(event.target.classList[0] === "cartButton"){

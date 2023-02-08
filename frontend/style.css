@@ -46,6 +46,25 @@ flex-direction: column;
 .allergenButton:active{
   transform: translateY(4px);
 }
+.resetFilter{
+    display: inline-block;
+    text-align: center;
+    font-size:16px;
+    background-color:#645CBB;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.resetFilter:hover{
+    color: #645CBB;
+    background-color: #EBC7E6;
+    }
+
+.resetFilter:active{
+  transform: translateY(4px);
+}
 
 .pizzas{
     display: flex;

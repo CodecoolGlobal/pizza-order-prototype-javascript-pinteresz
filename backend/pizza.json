@@ -22,14 +22,14 @@
             "allergens": [1,2,6]
         },
         {
-            "id": 3,
+            "id": 4,
             "name": "Hawaii",
             "ingredients": [ "Tomato sauce", " ham", " pineapple", " sweetcorn", " mozzarella" ],
             "price": 3195,
             "allergens": [1,2,3]
         },
         {
-            "id": 4,
+            "id": 5,
             "name": "Dolce Vita",
             "ingredients": [ "tomato sauce", " ham", " mushrooms", " sweetcorn", " mozzarella"],
             "price": 3195,
