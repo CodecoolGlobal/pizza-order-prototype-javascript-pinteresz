@@ -58,8 +58,8 @@ flex-direction: column;
 }
 
 .resetFilter:hover{
-    color: #645CBB;
-    background-color: #EBC7E6;
+    color: black;
+    background-color: white;
     }
 
 .resetFilter:active{
