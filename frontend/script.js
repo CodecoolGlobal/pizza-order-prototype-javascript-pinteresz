@@ -143,6 +143,9 @@ const clickEvent = function(event){
     //allergens filter
     console.log(event.target.classList[0]);
     if(allergens.includes(event.target.textContent)){
+        for(let pizza of pizzaList){
+            document.getElementById(`pizza${pizza.id}`).classList.remove("hidden")
+        }
         console.log(filterBy);
         if(!filterBy.includes(parseInt(event.target.id.slice(8)))){
         filterBy.push(parseInt(event.target.id.slice(8)))
@@ -158,7 +161,6 @@ const clickEvent = function(event){
         }
     }}
     if(event.target.classList[0] === "resetFilter"){
-        console.log("asd");
         for(let pizza of pizzaList){
             filterBy = []
             document.getElementById(`pizza${pizza.id}`).classList.remove("hidden")
