@@ -2,6 +2,7 @@ const express = require("express")
 const apiRouter = require("./routes/api")
 const app = express()
 const fs = require('fs');
+app.use(express.json())
 
 app.use("/api", apiRouter)
 

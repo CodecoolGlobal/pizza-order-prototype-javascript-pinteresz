@@ -48,6 +48,23 @@ apiRouter.get("/allergens", (req, res) => {
 })
 
 
+// /api/order Pizza order endpoint task
+let orderList = [];
+apiRouter.get("/order", (req, res) =>{
+    res.json(orderList)
+   
+
+})
+
+
+apiRouter.post("/order", (req, res) =>{
+   
+    orderList.push(req.body)
+    res.send("done")
+   
+
+})
+
 
 
 module.exports = apiRouter

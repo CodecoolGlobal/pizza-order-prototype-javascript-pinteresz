@@ -12,7 +12,11 @@ flex-direction: column;
     height: inherit;
 }
 
-.falseAllergenButton{
+.hidden{
+    display: none;
+}
+
+.fakeAllergenButton{
     display: inline-block;
     text-align: center;
     font-size:16px;
