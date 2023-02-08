@@ -12,9 +12,9 @@ const formElement = function (){
             <label for="adressCity">Adress City:</label><br>
             <input type="text" id="adressCity" placeholder="City"><br>
             <label for="street">Street:</label><br>
-            <input type="text" id="street" placeholder="Street"><br> 
+            <input type="text" id="street" placeholder="Street"><br><br> 
                 
-            <button type="submit">Submit Order</button><br><br>
+            <button type="submit" id="submitOrderButton">Submit Order</button><br><br>
         </fieldset>
        </div>
    </form>`
@@ -23,19 +23,11 @@ const formElement = function (){
 const cartElement = function (){
     return `
     <div id="shoppingCart" class="hidden">
-        <div>Pizza name:  Amount:</div>
+        <div id="pizzaAmount">Pizza name:<br>Amount:</div>
         <button id="orderDeleteButton">Delete order</button>
     </div>`
 }
 
-/* <fieldset>
-<legend>Personalia:</legend>
-<label for="fname">First name:</label><br>
-<input type="text" id="fname" name="fname" value="John"><br>
-<label for="lname">Last name:</label><br>
-<input type="text" id="lname" name="lname" value="Doe"><br><br>
-<input type="submit" value="Submit">
-</fieldset> */
 
 let shoppingCart = []
 
@@ -117,9 +109,10 @@ const buttonElement = function(allergen, id) {
 
 //console.log(allergensList)
 const loadEvent = _ => {
-    document.getElementById("root").insertAdjacentHTML("afterbegin", cartElement())
-    document.getElementById("root").insertAdjacentHTML("afterbegin", formElement())
-    document.getElementById("root").insertAdjacentHTML("afterbegin", `<div class="buttonsDiv" id="buttonsDiv"></div>`)
+    document.getElementById("root").insertAdjacentHTML("beforeend", formElement())
+    document.getElementById("root").insertAdjacentHTML("beforeend", cartElement())
+    
+    document.getElementById("root").insertAdjacentHTML("beforeend", `<div class="buttonsDiv" id="buttonsDiv"></div>`)
     document.getElementById("buttonsDiv").insertAdjacentHTML("beforeend", `<button class="fakeAllergenButton">Filter your pizza by allergens</button>`)
     document.getElementById("buttonsDiv").insertAdjacentHTML("beforeend", `<button class="resetFilter">Reset filter</button>`)
     loadAllergens2()
@@ -127,6 +120,26 @@ const loadEvent = _ => {
     // for (let i = 0; i < allergensList.length; i++){
         //     document.getElementById("root"). insertAdjacentHTML("afterbegin", buttonElement(allergensList[i].name))
         // }
+
+
+    // changing button color permanently and back
+  /*  const btnElList = document.querySelectorAll(".allergenButton")
+    console.log(btnElList);
+    let index = 0;
+
+    const colors = ['pink', 'red'];
+
+    btnElList.forEach(btnEl => {
+        btnEl.addEventListener('click', function onClick() {
+            btnEl.style.backgroundColor = colors[index];
+            btnEl.style.color = 'white';
+        
+            index = index >= colors.length - 1 ? 0 : index + 1;
+            });
+    })*/
+    
+
+
 
 
     loadPizzas()

@@ -1,3 +1,8 @@
+*{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
 height: 100vh;
 background-image: url("pizza.jpg");
@@ -12,8 +17,54 @@ flex-direction: column;
     height: inherit;
 }
 
+#orderForm{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: white;
+    
+}
+
+fieldset{
+    background-color: rgb(255, 0, 0, 0.8);
+}
+
+input{
+    margin-bottom: 5px;
+}
+
+#submitOrderButton, .cartButton{
+    background-color: rgb(38, 37,37, 0.7);
+    color: white;
+    border-radius: 5px;
+}
+
+#submitOrderButton:hover, .cartButton:hover{
+    color:black;
+    background-color:white;
+    }
+
+#submitOrderButton:active, .cartButton:active{
+   transform: translateY(4px);
+}
+
+
+
 .hidden{
     display: none;
+}
+
+#shoppingCart{
+    margin-top:10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: white;
+    background-color:  rgb(38, 37,37, 0.8);
+    line-height: 25px;
+}
+
+#pizzaAmount{
+    margin: 5px;
+    padding: 5px;
 }
 
 .fakeAllergenButton{
@@ -27,7 +78,7 @@ flex-direction: column;
     border-radius: 5px;
 }
 
-.allergenButton{
+.allergenButton,  #orderDeleteButton{
     display: inline-block;
     text-align: center;
     font-size:16px;
@@ -38,13 +89,13 @@ flex-direction: column;
     border-radius: 5px;
 }
 
-.allergenButton:hover{
+.allergenButton:hover,  #orderDeleteButton:hover{
     color:#000000;
     background-color:#FFFFFF;
     }
 
-.allergenButton:active{
-  transform: translateY(4px);
+.allergenButton:active,  #orderDeleteButton:active{
+   transform: translateY(4px);
 }
 .resetFilter{
     display: inline-block;
