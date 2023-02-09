@@ -1,6 +1,7 @@
 const express = require("express")
 const apiRouter = express.Router()
 const fs = require('fs');
+
 // const path = require("path");
 // const filePath = path.join(`${__dirname}/pizza.json`);
 // const { readFile } = require("fs/promises");
@@ -13,9 +14,8 @@ const fs = require('fs');
 // 	}
 // };
 
-
 apiRouter.get("/", (req, res) => {
-    res.send("HELLO XD")
+    res.send("Hello World")
 })
 
 apiRouter.get("/pizza", (req, res) => {
@@ -24,11 +24,9 @@ apiRouter.get("/pizza", (req, res) => {
         const data = fs.readFileSync('backend/pizza.json', 'utf8');
         jsonData = JSON.parse(data);
         //console.log(jsonData);
-    }
-    catch (err) {
+    } catch (err) {
         console.error(err);
     }
-
     res.json(jsonData.pizzas)
 })
 
@@ -39,11 +37,9 @@ apiRouter.get("/allergens", (req, res) => {
         const data = fs.readFileSync('backend/pizza.json', 'utf8');
         jsonData = JSON.parse(data);
         //console.log(jsonData);
-    }
-    catch (err) {
+    } catch (err) {
         console.error(err);
     }
-
     res.json(jsonData.allergens)
 })
 
@@ -52,19 +48,15 @@ apiRouter.get("/allergens", (req, res) => {
 let orderList = [];
 apiRouter.get("/order", (req, res) =>{
     res.json(orderList)
-   
-
+    // res.json(req.body)
 })
-
 
 apiRouter.post("/order", (req, res) =>{
-   
     orderList.push(req.body)
-    res.send("done")
+    console.log(orderList);
+   // res.json("done")
    
-
 })
-
 
 
 module.exports = apiRouter
