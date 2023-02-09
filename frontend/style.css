@@ -6,6 +6,7 @@
 body {
 height: 100vh;
 background-image: url("pizza.jpg");
+
 background-repeat: no-repeat;
 display: flex;
 align-items: center;
@@ -60,6 +61,7 @@ input{
     color: white;
     background-color:  rgb(38, 37,37, 0.8);
     line-height: 25px;
+    text-align: center;
 }
 
 #pizzaAmount{

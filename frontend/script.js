@@ -23,7 +23,7 @@ const formElement = function (){
 const cartElement = function (){
     return `
     <div id="shoppingCart" class="hidden">
-        <div id="pizzaAmount">Pizza name:<br>Amount:</div>
+        <div id="pizzaAmount">Pizza name:   Amount:</div>
         <button id="orderDeleteButton">Delete order</button>
     </div>`
 }
