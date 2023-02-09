@@ -99,11 +99,18 @@ const loadPizzas = function () {
         
 }
 
+const changeButtonClr = function(id){
+    console.log(document.getElementById(id).style.backgroundColor);
+    if( document.getElementById(id).style.backgroundColor == 'darkred'){
+        document.getElementById(id).style.backgroundColor ='red'
+    }else{
+        document.getElementById(id).style.backgroundColor ='darkred'
+    }
+}
 
 const buttonElement = function(allergen, id) {
     return `<button type="button" class="allergenButton" id="allergen${id}">${allergen}</button>`
 }
-
 
 
 
@@ -117,30 +124,24 @@ const loadEvent = _ => {
     document.getElementById("buttonsDiv").insertAdjacentHTML("beforeend", `<button class="resetFilter">Reset filter</button>`)
     loadAllergens2()
     .then(allergens => allergens.map(allergen =>  document.getElementById("buttonsDiv"). insertAdjacentHTML("beforeend", buttonElement(allergen["name"], allergen.id))))
-    // for (let i = 0; i < allergensList.length; i++){
-        //     document.getElementById("root"). insertAdjacentHTML("afterbegin", buttonElement(allergensList[i].name))
-        // }
-
+   
 
     // changing button color permanently and back
-  /*  const btnElList = document.querySelectorAll(".allergenButton")
-    console.log(btnElList);
-    let index = 0;
 
-    const colors = ['pink', 'red'];
+//    const btnElList = document.querySelectorAll(".allergenButton")
+//     console.log(btnElList);
+//     let index = 0;
 
-    btnElList.forEach(btnEl => {
-        btnEl.addEventListener('click', function onClick() {
-            btnEl.style.backgroundColor = colors[index];
-            btnEl.style.color = 'white';
+//     const colors = ['pink', 'red'];
+
+//     btnElList.forEach(btnEl => {
+//         btnEl.addEventListener('click', function onClick() {
+//             btnEl.style.backgroundColor = colors[index];
+//             btnEl.style.color = 'white';
         
-            index = index >= colors.length - 1 ? 0 : index + 1;
-            });
-    })*/
-    
-
-
-
+//             index = index >= colors.length - 1 ? 0 : index + 1;
+//             });
+//     })
 
     loadPizzas()
         .then(pizzas => printPizzas(pizzas))
@@ -172,13 +173,26 @@ const clickEvent = function(event){
                         document.getElementById(`pizza${pizza.id}`).classList.add("hidden")
                 }         
         }
-    }}
+    }
+
+    //allergens buttons color change
+changeButtonClr(event.target.id)
+
+
+
+
+}
     if(event.target.classList[0] === "resetFilter"){
         for(let pizza of pizzaList){
             filterBy = []
             document.getElementById(`pizza${pizza.id}`).classList.remove("hidden")
         }
-    }   
+    }  
+    
+    
+
+
+
 
     //order buttons
     if(event.target.classList[0] === "cartButton"){
@@ -195,6 +209,9 @@ const clickEvent = function(event){
     }
 
 }
+
+
+
 
 
 
