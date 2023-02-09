@@ -128,25 +128,13 @@ const loadEvent = _ => {
 
     // changing button color permanently and back
 
-//    const btnElList = document.querySelectorAll(".allergenButton")
-//     console.log(btnElList);
-//     let index = 0;
-
-//     const colors = ['pink', 'red'];
-
-//     btnElList.forEach(btnEl => {
-//         btnEl.addEventListener('click', function onClick() {
-//             btnEl.style.backgroundColor = colors[index];
-//             btnEl.style.color = 'white';
-        
-//             index = index >= colors.length - 1 ? 0 : index + 1;
-//             });
-//     })
+   
 
     loadPizzas()
         .then(pizzas => printPizzas(pizzas))
 }
 let filterBy = []
+
 const clickEvent = function(event){
     
     const allergens = []
@@ -179,6 +167,15 @@ const clickEvent = function(event){
 changeButtonClr(event.target.id)
 
 
+
+    // btnElList.forEach(btnEl => {
+    //     btnEl.addEventListener('click', function onClick() {
+    //         btnEl.style.backgroundColor = colors[index];
+    //         btnEl.style.color = 'white';
+        
+    //         index = index >= colors.length - 1 ? 0 : index + 1;
+    //         });
+    // })
 
 
 }
