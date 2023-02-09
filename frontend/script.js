@@ -23,8 +23,8 @@ const formElement = function (){
 const cartElement = function (){
     return `
     <div id="shoppingCart" class="hidden">
-        <div id="pizzaAmount">Pizza name:   Amount:</div>
-        <button id="orderDeleteButton">Delete order</button>
+        <div id="pizzaAmount">Pizza name:   Amount:
+        <button id="orderDeleteButton">Delete order</button></div>
     </div>`
 }
 
@@ -183,6 +183,10 @@ changeButtonClr(event.target.id)
         for(let pizza of pizzaList){
             filterBy = []
             document.getElementById(`pizza${pizza.id}`).classList.remove("hidden")
+        }
+        for(let allergen of allergensList){
+            console.log(allergen.id);
+            document.getElementById(`allergen${allergen.id}`).style.backgroundColor ='red'
         }
     }  
     
