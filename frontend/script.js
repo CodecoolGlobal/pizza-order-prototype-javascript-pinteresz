@@ -31,9 +31,9 @@ const cartElement = function (){
 let cartId = 0
 let shoppingCartCounter = 0
 
-const updateCart = function (id, amount, cartId){
+const updateCart = function (id, amount, cartId, price){
     document.getElementById("shoppingCart").insertAdjacentHTML('beforeend',
-        `<div id="cartOption${cartId}" class="pizzaAmount">Pizza name: ${pizzaList[id-1].name} ${amount} pieces
+        `<div id="cartOption${cartId}" class="pizzaAmount">Pizza name: ${pizzaList[id-1].name} ${amount} pieces   Price: ${price*amount} Ft
         <button id="orderDeleteButton${cartId}" class="orderDeleteButton">Delete order</button></div>`
     )
     shoppingCartCounter++
@@ -204,6 +204,7 @@ const clickEvent = function(event){
     //Order buttons
     if (event.target.classList[0] === "cartButton"){
         let id = event.target.id.slice(6)
+        let price = parseInt(pizzaList[id-1].price)
         // console.log(id)
         let amount = document.getElementById(`input${id}`).value
 
@@ -215,7 +216,7 @@ const clickEvent = function(event){
 
         document.querySelector('#orderForm').classList.remove('hidden');
         document.querySelector('#shoppingCart').classList.remove('hidden');
-        updateCart(id, amount, cartId)
+        updateCart(id, amount, cartId, price)
         cartId++
     }
 
