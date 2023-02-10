@@ -163,7 +163,7 @@ const clickEvent = function(event){
     });
 
     //Allergens filter
-    if (allergens.includes(event.target.textContent)){
+    if (event.target.classList[0] === 'allergenButton'){
         for (let pizza of pizzaList){
             document.getElementById(`pizza${pizza.id}`).classList.remove("hidden")
         }
@@ -220,7 +220,7 @@ const clickEvent = function(event){
     }
 
     //Delete order
-    if (event.target.textContent === 'Delete order'){
+    if (event.target.classList[0] === 'orderDeleteButton'){
         shoppingCartCounter--
 
         let id = event.target.id.slice(17)
@@ -241,7 +241,7 @@ const clickEvent = function(event){
     }
 
     //Submit button
-    if (event.target.textContent === 'Submit Order'){
+    if (event.target.id === 'submitOrderButton'){
         event.preventDefault()
         const date = new Date()
 
