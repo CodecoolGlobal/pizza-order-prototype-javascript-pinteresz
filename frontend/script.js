@@ -129,7 +129,7 @@ const changeButtonClr = function (id){
 
 // Allergen buttons HTML element
 const buttonElement = function(allergen, id) {
-    return `<button type="button" class="allergenButton" id="allergen${id}">${allergen}</button>`
+    return `<button type="button" class="allergenButton" data-id="${id}" id="allergen${id}">${allergen}</button>`
 }
 
 
@@ -163,12 +163,12 @@ const clickEvent = function(event){
     });
 
     //Allergens filter
-    if (event.target.classList[0] === 'allergenButton'){
+    if (event.target.classList.contains('allergenButton')){
         for (let pizza of pizzaList){
             document.getElementById(`pizza${pizza.id}`).classList.remove("hidden")
         }
         // console.log(filterBy);
-
+        console.log(event.target.dataset.id);
         if (!filterBy.includes(parseInt(event.target.id.slice(8)))){
             filterBy.push(parseInt(event.target.id.slice(8)))
         } else {

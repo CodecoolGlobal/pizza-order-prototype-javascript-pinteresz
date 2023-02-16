@@ -91,7 +91,7 @@ input {
 
 .allergenButton:hover {
     color:#000000;
-   /* background-color:#FFFFFF;*/
+    background-color:#FFFFFF;
 }
 
 .orderDeleteButton:hover {
